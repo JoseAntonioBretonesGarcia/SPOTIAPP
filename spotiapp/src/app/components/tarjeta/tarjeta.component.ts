@@ -16,13 +16,11 @@ export class TarjetaComponent {
 
   verArtista(item: any) {
     let artistaId;
-
-    if(item.type === 'artist'){
-      artistaId = item.id;
+    if(item.hasOwnProperty('artists')){
+      artistaId = item.artists[0].id;
     }else{
-      artistaId = item.artist[0].id;
+      artistaId = item.id;
     }
-
-    this.router.navigate([])
+    this.router.navigate([`artist/${artistaId}`]);
   }
 }
